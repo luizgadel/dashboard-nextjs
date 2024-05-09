@@ -1,4 +1,5 @@
 import '@/app/ui/global.css'
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import { inter } from './ui/fonts';
 
 export default function RootLayout({
