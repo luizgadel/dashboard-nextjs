@@ -14,7 +14,9 @@ export default function NavLinks() {
     return (
         <>
             {navItems.map(item => (
-                <Link href={item.link}>
+                <Link 
+                    key={item.text}
+                    href={item.link}>
                     <div 
                         className={clsx(
                             "h-12 mt-3 flex rounded-md",
