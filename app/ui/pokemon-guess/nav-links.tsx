@@ -17,12 +17,12 @@ export default function NavLinks() {
                 <Link href={item.link}>
                     <div 
                         className={clsx(
-                            "h-12 mt-3 text-black/75 flex rounded-md",
+                            "h-12 mt-3 flex rounded-md",
                             {
-                                'bg-neutral-200 text-black/100': pathname === item.link,
+                                'bg-neutral-200 text-black/100': pathname == item.link,
                             },
                             {
-                                'hover:text-black/100': pathname != item.link,
+                                'text-black/75 hover:text-black/100': pathname != item.link,
                             }
                         )}
                     >
