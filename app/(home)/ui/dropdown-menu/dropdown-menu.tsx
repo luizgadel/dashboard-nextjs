@@ -39,7 +39,7 @@ export default function DropdownMenu() {
                 {firstLetter.toLocaleUpperCase()}
             </button>
             <div className={clsx("\
-                absolute h-fit-content w-32 top-14 right-4 py-2 \
+                absolute h-fit-content w-32 top-14 right-16 py-2 \
                 rounded-lg border border-halborn-500 bg-black flex flex-col", 
                 {'visible': isMenuVisible},
                 {'invisible': !isMenuVisible}

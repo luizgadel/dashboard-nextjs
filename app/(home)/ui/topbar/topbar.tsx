@@ -8,22 +8,24 @@ export default function Topbar() {
         { text: 'Users', icon: 'bi-people', link: '/users'}
     ]
     return (
-        <div className='flex grow h-16 bg-black justify-between items-center'>
-            <div className="flex">
+        <div className='flex grow justify-between items-center h-16 ps-14 bg-black border-b border-halborn-500'>
+            <div className="flex w-1/2  md:w-5/12 lg:w-1/3 xl:w-1/4 justify-between">
                 <Link 
                     key={'luizi'}
                     href={'/'}>
                     <div className="
-                        rounded-lg h-9 w-24 md:me-16 lg:me-32 2xl:me-48
+                        rounded-lg h-9 px-2
                         flex items-center justify-center 
                         text-xl text-halborn-500 font-bold
                     ">
                         LUIZI
                     </div>
                 </Link>
-                <BarLinks menuItems={menuItems} />
+                <div className="flex">
+                    <BarLinks menuItems={menuItems} />
+                </div>
             </div>
-            <div className="me-4">
+            <div className="me-16">
                 <DropdownMenu />
             </div>
         </div>
