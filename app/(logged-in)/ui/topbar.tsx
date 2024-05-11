@@ -1,5 +1,5 @@
-import DropdownMenu from "../dropdown-menu/dropdown-menu";
-import BarLinks from "../bar-links/bar-links";
+import DropdownMenu from "./dropdown-menu";
+import BarLinks from "./bar-links";
 import Link from "next/link";
 
 export default function Topbar() {

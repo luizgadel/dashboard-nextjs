@@ -1,4 +1,4 @@
-import UserTable from "../ui/user-table/user-table";
+import UserTable from "../ui/user-table";
 
 export default function Page() {
     return (

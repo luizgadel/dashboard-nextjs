@@ -1,6 +1,6 @@
 'use client';
 
-import NavLinks from "@/app/ui/pokemon-guess/nav-links";
+import NavLinks from "@/app/(logged-in)/ui/pokemon-guess/nav-links";
 import clsx from "clsx";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
