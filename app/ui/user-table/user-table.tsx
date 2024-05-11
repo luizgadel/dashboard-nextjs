@@ -62,7 +62,7 @@ export default function UsersTable() {
                     </span>
                 </div>
                 {users.map(u => (
-                    <div className="h-12 flex justify-center items-center py-auto border-t border-halborn-500">
+                    <div key={u.email} className="h-12 flex justify-center items-center py-auto border-t border-halborn-500">
                         <EditButton user={u}/>
                     </div>
                 ))}
