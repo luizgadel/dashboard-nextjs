@@ -3,7 +3,7 @@ import UserTable from "../ui/user-table/user-table";
 export default function Page() {
     return (
         <>
-            <div className="flex flex-col grow h-screen bg-black text-halborn-500 p-16">
+            <div className="flex flex-col grow h-screen bg-black text-halborn-500 px-16 py-32">
                 <div className="flex justify-between">
                     <span className="font-bold text-2xl">Users</span>
                     <button >

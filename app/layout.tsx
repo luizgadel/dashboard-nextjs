@@ -1,7 +1,7 @@
 import '@/app/ui/global.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { inter } from './ui/fonts';
-import Topbar from './(home)/ui/topbar/topbar';
+import Topbar from './ui/topbar/topbar';
 
 export default function RootLayout({
   children,

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Topbar() {
     const menuItems = [
-        { text: 'Home', icon: 'bi-house', link: '/'},
+        { text: 'Home', icon: 'bi-house', link: '/home'},
         { text: 'Users', icon: 'bi-people', link: '/users'}
     ]
     return (

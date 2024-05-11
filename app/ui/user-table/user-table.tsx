@@ -40,14 +40,14 @@ export default function UsersTable() {
     return (
         <div className="flex flex-row border border-halborn-500 rounded mt-3">
             {columnNames.map((cn) => (
-                <div className="flex grow flex-col">
+                <div key={cn.name} className="flex grow flex-col">
                     <div className="h-12 ps-3 pt-3">
                         <span>
                             {cn.name}
                         </span>
                     </div>
                     {users.map(u => (
-                        <div className="h-12 ps-3 flex items-center border-t border-halborn-500">
+                        <div key={u.email} className="h-12 ps-3 flex items-center border-t border-halborn-500">
                             <span>
                                 {cn.action(u)}
                             </span>
