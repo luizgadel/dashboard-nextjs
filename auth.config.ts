@@ -7,14 +7,24 @@ export const authConfig = {
     callbacks: {
         authorized({ auth, request: { nextUrl } }) {
             const isLoggedIn = !!auth?.user;
-            const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
-            if (isOnDashboard) {
-                if (isLoggedIn) return true;
-                return false;
-            } else if (isLoggedIn) {
-                return Response.redirect(new URL('/dashboard', nextUrl))
+            const loggedInHome = '/home';
+            const loggedInAllowedRoutes = [loggedInHome, '/users', '/favicon', '/dashboard']
+            const loggedOutHome = '/login'
+            const loggedOutAllowedRoutes = [loggedOutHome, '/favicon']
+            const nextRoute = nextUrl.pathname
+            if (isLoggedIn) {
+                if (loggedInAllowedRoutes.some(f => nextRoute.startsWith(f)))
+                    return true
+                else {
+                    return Response.redirect(new URL(loggedInHome, nextUrl))
+                }
+            } else {
+                if (loggedOutAllowedRoutes.some(f => nextRoute.startsWith(f)))
+                    return true;
+                else {
+                    return Response.redirect(new URL(loggedOutHome, nextUrl))
+                }
             }
-            return true;
         },
     },
     providers: []
