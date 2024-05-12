@@ -40,7 +40,7 @@ export default function UsersTable() {
         { id: 5, name: 'Artur Maximus', email: 'max.artur@bol.com.br'}
     ]
     return (
-        <div className="flex flex-row border border-gray-500/75 rounded mt-3">
+        <div className="flex flex-row border border-gray-500/75 rounded">
             {columnNames.map((cn) => (
                 <div key={cn.name} className="flex grow flex-col">
                     <div className="h-12 ps-3 pt-3">

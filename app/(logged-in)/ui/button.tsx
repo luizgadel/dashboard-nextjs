@@ -1,18 +1,20 @@
 'use client';
 import Link from "next/link";
 import { ButtonData } from "@/app/lib/definitions";
+import clsx from "clsx";
 
 export default function Button({name, href, action, icon}: ButtonData) {
     function ButtonChild() {
         return (
             <>
-                <i className={icon}></i>
-                <span className="ms-2">{href != undefined ?'Go to ':''}{name}</span>
+                {icon != '' && <i className={icon}></i>}
+                <span className={clsx({'ms-2': icon != ''})}>{href != undefined ?'Go to ':''}{name}</span>
             </>
         )
     }
 
     const classes = '\
+        w-full\
         rounded-lg h-10 border bg-halborn-500 hover:bg-halborn-600 shadow-sm\
         flex px-3 items-center justify-center\
     ' 

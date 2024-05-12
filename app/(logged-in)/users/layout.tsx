@@ -38,12 +38,11 @@ export default function UsersLayout({ children }: { children: React.ReactNode}) 
     }
 
     const breadcrumbs = getBreadcrumbArray();
-    const crumbsLength = breadcrumbs.length;
 
     return (
-        <div className="flex flex-col grow px-16 py-32">
-            <div className="flex">
-                <div className="flex grow">
+        <div className="flex flex-col grow px-16 pt-16">
+            <div className="flex mb-3">
+                    <div className="flex grow">
                     <Breadcrumbs breadcrumbs={breadcrumbs} />
                 </div>
                 <div className={clsx('visible', {'invisible': pathname != '/users'})}>

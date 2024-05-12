@@ -18,8 +18,8 @@ export default function BarLinks(
                     <div 
                         className={clsx(
                             "rounded-lg h-9 ms-5 px-3 flex items-center justify-center",
-                            { 'text-halborn-500': pathname == item.link },
-                            { 'text-halborn-500/75 hover:text-halborn-500': pathname != item.link}
+                            { 'text-halborn-500': pathname.startsWith(item.link) },
+                            { 'text-halborn-500/75 hover:text-halborn-500': !pathname.startsWith(item.link)}
                         )}>
                         <i className={item.icon}></i>
                         <span className="ms-2">{item.text}</span>
