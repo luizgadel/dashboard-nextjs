@@ -9,7 +9,7 @@ export default function UserFormLayout({ children }: { children: React.ReactNode
     return (
         <div className="border border-gray-500/75 rounded-xl flex flex-col max-w-xl pt-4 px-6 pb-6">
             {inputFieldArray.map((inputField) => (
-                <label className="form-control">
+                <label key={inputField.title} className="form-control">
                     <div className="label">
                         <span className="label-text">{inputField.title}</span>
                     </div>
