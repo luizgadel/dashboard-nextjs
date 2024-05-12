@@ -1,4 +1,7 @@
 'use client';
+
+import Link from "next/link";
+
 type User = {
     id: number,
     name: string,
@@ -16,13 +19,12 @@ export default function UsersTable() {
 
     function EditButton({ user }: { user: User }) {
         return (    
-            <button className="h-9 rounded-lg px-2
-            text-halborn-300 hover:text-halborn-500" onClick={
-                () => console.log(`show the edit modal for ${user.name}`)
-            }>
+            <Link 
+                href={`/users/edit?id=${user.id}`} 
+                className="rounded-lg border border-gray-500/50 px-3 py-1" 
+            >
                 <i className="bi-pencil"></i>
-                <span className="ms-2">Edit</span>
-            </button>
+            </Link>
         )
     }
 
@@ -38,16 +40,16 @@ export default function UsersTable() {
         { id: 5, name: 'Artur Maximus', email: 'max.artur@bol.com.br'}
     ]
     return (
-        <div className="flex flex-row border border-halborn-500 rounded mt-3">
+        <div className="flex flex-row border border-gray-500/75 rounded mt-3">
             {columnNames.map((cn) => (
                 <div key={cn.name} className="flex grow flex-col">
                     <div className="h-12 ps-3 pt-3">
-                        <span>
+                        <span className="text-gray-500/75">
                             {cn.name}
                         </span>
                     </div>
                     {users.map(u => (
-                        <div key={u.email} className="h-12 ps-3 flex items-center border-t border-halborn-500">
+                        <div key={u.email} className="h-12 ps-3 flex items-center border-t border-gray-500/75">
                             <span>
                                 {cn.action(u)}
                             </span>
@@ -57,12 +59,12 @@ export default function UsersTable() {
             ))}
             <div className="flex grow-[0.2] flex-col ">
                 <div className="h-12 px-3 flex justify-center items-center">
-                    <span>
+                    <span className="text-gray-500/75">
                         Actions
                     </span>
                 </div>
                 {users.map(u => (
-                    <div key={u.email} className="h-12 flex justify-center items-center py-auto border-t border-halborn-500">
+                    <div key={u.email} className="h-12 flex justify-center items-center py-auto border-t border-gray-500/75">
                         <EditButton user={u}/>
                     </div>
                 ))}

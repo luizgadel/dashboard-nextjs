@@ -1,11 +1,9 @@
+import { PageForCard } from '@/app/lib/definitions';
 import Link from 'next/link';
+import Button from '../ui/button';
 
-type Page = {
-  name: string, href: string, icon: string, cardTitle: string, cardDescription: string
-}
-
-export default function Page() {
-  const pages: Page[] = [
+export default function HomePage() {
+  const pages: PageForCard[] = [
     { 
       name: 'Users', href: '/users', icon: 'bi-people', 
       cardTitle: 'Manage Users', 
@@ -14,7 +12,7 @@ export default function Page() {
   ]
   return (
     <>
-      {pages.map((p: Page) => (
+      {pages.map((p: PageForCard) => (
         <div key={p.name} 
           className='
           border shadow-sm max-w-md h-48 ms-4 mt-8 rounded-lg p-6 
@@ -24,15 +22,9 @@ export default function Page() {
             <span className='font-bold text-2xl'>Manage {p.name}</span>
             <span className='text-gray-500'>{p.cardDescription}</span>
           </div>
-          <Link className='
-            rounded-lg h-10 w-40 border bg-halborn-500 shadow-sm
-            flex px-3 items-center justify-center
-            ' 
-            href={p.href}
-          >
-            <i className={p.icon}></i>
-            <span className="ms-2">Go to {p.name}</span>
-          </Link> 
+          <div className='flex'>
+            <Button {...p} />
+          </div>
         </div>
       ))}
     </>
