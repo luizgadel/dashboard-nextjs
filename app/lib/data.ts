@@ -234,8 +234,9 @@ async function getBackendJWT() {
 }
 
 export async function getAllUsers() {
+  const jwt = await getBackendJWT()
+  
   try {
-    const jwt = await getBackendJWT()
     const apiUrl = 'https://dashboard-nestjs.vercel.app';
     const usersRoute = '/users';
     const response = await fetch(apiUrl + usersRoute, {
