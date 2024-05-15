@@ -29,6 +29,7 @@ export const { auth, signIn, signOut } = NextAuth({
                     });
                     if (profileResponse.ok) {
                       const user = await profileResponse.json();
+                      user.accessToken = jwt;
                       return user;
                     } else {
                       console.error('Failed to fetch user:', profileResponse.statusText);

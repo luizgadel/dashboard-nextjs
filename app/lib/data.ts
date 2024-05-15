@@ -10,6 +10,7 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
+import { auth } from '@/auth';
 
 export async function fetchRevenue() {
   // Add noStore() here to prevent the response from being cached.
@@ -226,12 +227,27 @@ export async function fetchFilteredCustomers(query: string) {
   }
 }
 
-export async function getUser(email: string) {
+async function getBackendJWT() {
+  const session = await auth();
+  const jwt = (session?.user as { accessToken: string } )?.accessToken;
+  return jwt;
+}
+
+export async function getAllUsers() {
   try {
-    const user = await sql`SELECT * FROM users WHERE email=${email}`;
-    return user.rows[0] as User;
+    const jwt = await getBackendJWT()
+    const apiUrl = 'https://dashboard-nestjs.vercel.app';
+    const usersRoute = '/users';
+    const response = await fetch(apiUrl + usersRoute, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${jwt}`
+      }
+    });
+    const users = await response.json()
+    return users
   } catch (error) {
-    console.error('Failed to fetch user:', error);
-    throw new Error('Failed to fetch user.');
+    console.error('Failed to fetch users:', error);
+    throw new Error('Failed to fetch users.');
   }
 }

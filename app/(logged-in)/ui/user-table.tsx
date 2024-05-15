@@ -8,7 +8,7 @@ type User = {
     email: string
 }
 
-export default function UsersTable() {
+export default function UsersTable({ users }: { users: { id: number, name: string, email: string }[]}) {
     function getUserName(u: User) {
         return u.name;
     }
@@ -31,13 +31,6 @@ export default function UsersTable() {
     const columnNames = [
         { name: "Name", action: (u: User) => { return getUserName(u) }}, 
         { name: "Email", action: (u: User) => { return getUserEmail(u) }}
-    ]
-    const users: { id: number, name: string, email: string }[] = [
-        { id: 1, name: 'Luiz Gadelha', email: 'luizgadelha@hotmail.com'},
-        { id: 2, name: 'Lucca Marinho', email: 'luccamarinho@gmail.com'},
-        { id: 3, name: 'Eduarda da Silva', email: 'dudasilva@yahoo.com'},
-        { id: 4, name: 'Miguel Brandão', email: 'miguelbr@live.com'},
-        { id: 5, name: 'Artur Maximus', email: 'max.artur@bol.com.br'}
     ]
     return (
         <div className="flex flex-row border border-gray-500/75 rounded">
