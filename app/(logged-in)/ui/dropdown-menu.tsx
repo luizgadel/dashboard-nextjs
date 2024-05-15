@@ -22,17 +22,17 @@ export default function DropdownMenu() {
     }
 
     const menuItems = [
-        { text: 'Profile', icon: 'bi-person', action:  () => { goToProfile() }},
-        { text: 'Logout', icon: 'bi-box-arrow-right', action: () => { callLogout() }}
+        { text: 'Profile (WIP)', icon: 'bi-person', action:  () => { goToProfile() }},
+        { text: 'Logout (WIP)', icon: 'bi-box-arrow-right', action: () => { callLogout() }}
     ]
 
-    const username = "luiz";
+    const username = "";
 
     return (
         <>
             <button
               className={clsx(
-                "rounded-full w-32 h-9 border \
+                "rounded-full w-40 h-9 border \
                 hover:border-halborn-500 hover:text-halborn-500",
                 {'border-halborn-500 text-halborn-500': isMenuVisible},
                 {'border-halborn-500/75 text-halborn-500/75': !isMenuVisible}
@@ -40,10 +40,10 @@ export default function DropdownMenu() {
               onClick={toggleMenu}
             >
                 <i className='bi-person'></i>
-                <span className="ms-2">{username}</span>
+                {/* <span className="ms-2">{username}</span> */}
             </button>
             <div className={clsx("\
-                absolute h-fit-content w-32 top-14 right-16 py-2 \
+                absolute h-fit-content w-40 top-14 right-16 py-2 \
                 rounded-lg border border-halborn-500 bg-black flex flex-col", 
                 {'visible': isMenuVisible},
                 {'invisible': !isMenuVisible}
@@ -52,7 +52,7 @@ export default function DropdownMenu() {
                     <button 
                         key={item.text}
                         className={clsx(
-                            "h-12 text-halborn-500/75 text-start ps-4 hover:text-halborn-500",
+                            "h-12 text-halborn-500/75 text-start ps-4 hover:text-halborn-500 disabled",
                         )}
                         onClick={item.action}
                     >
