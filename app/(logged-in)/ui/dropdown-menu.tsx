@@ -1,5 +1,6 @@
 'use client';
 
+import { callLogout } from "@/app/lib/actions";
 import clsx from "clsx";
 import { redirect } from "next/navigation";
 import { useState } from "react";
@@ -11,19 +12,23 @@ export default function DropdownMenu() {
         setIsMenuVisible(!isMenuVisible);
     }
 
-    function callLogout() {
-        toggleMenu()
-        console.log('logout!')
-    }
-
-    function goToProfile() {
-        toggleMenu()
-        redirect('/profile');
-    }
-
     const menuItems = [
-        { text: 'Profile (WIP)', icon: 'bi-person', action:  () => { goToProfile() }},
-        { text: 'Logout (WIP)', icon: 'bi-box-arrow-right', action: () => { callLogout() }}
+        { 
+            text: 'Profile (WIP)', 
+            icon: 'bi-person', 
+            action:  () => { 
+                toggleMenu()
+                redirect('/profile'); 
+            }
+        },
+        { 
+            text: 'Logout', 
+            icon: 'bi-box-arrow-right', 
+            action: async () => { 
+                toggleMenu(); 
+                await callLogout();
+            }
+        }
     ]
 
     const username = "";
@@ -49,16 +54,18 @@ export default function DropdownMenu() {
                 {'invisible': !isMenuVisible}
             )}>
                 {menuItems.map(item => (
-                    <button 
+                    <form 
                         key={item.text}
-                        className={clsx(
-                            "h-12 text-halborn-500/75 text-start ps-4 hover:text-halborn-500 disabled",
-                        )}
-                        onClick={item.action}
-                    >
-                        <i className={item.icon}></i>
-                        <span className="ms-2">{item.text}</span>
-                    </button>
+                        action={item.action}>
+                        <button 
+                            className={clsx(
+                                "h-12 text-halborn-500/75 text-start ps-4 hover:text-halborn-500 disabled",
+                            )}
+                        >
+                            <i className={item.icon}></i>
+                            <span className="ms-2">{item.text}</span>
+                        </button>
+                    </form>
                 ))}
             </div>
         </>

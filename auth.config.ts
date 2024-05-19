@@ -34,7 +34,6 @@ export const authConfig = {
         
         },
         async session({session, token, user}: {session: any, token: any, user: any}	) {
-            console.log('session callback, user: ', token)
             session.user = {username: token.username, accessToken: token.accessToken };
             return session;
         }
