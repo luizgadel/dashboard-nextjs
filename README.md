@@ -10,7 +10,7 @@ This project was built with:
 
 The app has the following features and pages:
 - Connection with a [backend API](https://github.com/luizgadel/dashboard-nestjs).
-- Login by username and password.
+- Login by email and password.
 - Topbar with:
     - navigation links reflecting the current page;
     - a dropdown menu with a logout button.
@@ -28,8 +28,10 @@ The app is deployed on Vercel and can be accessed by clicking [here](https://nex
 This is my first personal project using Next.js. To take my initial steps with the framework, I took the dashboard's tutorial available on the official site. In that tutorial, I learnt to use the main features of Next like App Router, Server and Client components, Streaming, Suspense, and NextAuth.
 
 After the tutorial, I started making changes to implement the pages I wanted for this project and got on my first problems without solution. For example:
-- The use of asynchronous methods in Client components: Next.js doesnt allow for calls of async methods in events like the 'onClick' of a button. Instead, it seems the pattern for calling an async method for a button click is using the 'action' event of a form that is positioned as a wrapper for the button.
-- NextAuth's session object: When looking for ways of accessing the session object of NextAuth, I stumbled across lots of references indicating a method called 'getSession' or 'getServerSession', but couldn't find them on my NextAuth package and import it. Took me some time to realize that this methods weren't available because I was using the version 5 of NextAuth (which apparently changing its name to Auth.js) and, in this new version, the session object is now intermediated by a method called 'auth'.
+- The use of asynchronous methods in Client components: Next.js doesnt allow for calls of async methods in events like the 'onClick' of a button. 
+Instead, it seems the pattern for calling an async method for a button click is using the 'action' event of a form that is positioned as a wrapper for the button.
+- NextAuth's session object: When looking for ways of accessing the session object of NextAuth, I stumbled across lots of references indicating a method called 'getSession' or 'getServerSession', but couldn't find them on my NextAuth package and import it. 
+Took me some time to realize that this methods weren't available because I was using the version 5 of NextAuth (which apparently is also changing its name to Auth.js) and, in this new version, the session object is now intermediated by a method called 'auth'.
 
 ### Tailwind
 
@@ -65,4 +67,4 @@ Later, I pretend to change my topbar's dropdown menu implementation for DaisyUI'
 1. [Learn Next.js | Next.js](https://nextjs.org/learn/dashboard-app)
 2. [Customizing Colors - Tailwind CSS](https://tailwindcss.com/docs/customizing-colors)
 3. [Extendind the session - Auth.js](https://authjs.dev/guides/extending-the-session)
-4. [Text Input component](https://daisyui.com/components/input/)
+4. [Text Input component - DaisyUI](https://daisyui.com/components/input/)
