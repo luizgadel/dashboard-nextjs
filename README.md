@@ -33,7 +33,7 @@ After the tutorial, I started making changes to implement the pages I wanted for
 
 ### Tailwind
 
-I've never worked with Tailwind before, but found its use to be very similar to Bootstrap, which I have used in many previous jobs. I've always liked to work with a CSS framework, that said, Tailwind feels pretty natural and fun to deal with.
+Before this project, I had only used Tailwind as a test for an Angular project and, in that ocasion, I found its use to be very similar to Bootstrap, which I have used in many previous projects. I've also always liked to work with a CSS framework, that said, Tailwind feels pretty natural and fun to deal with.
 
 In this project, Tailwind is used to build the UI of almost all pages and components. For example:
 - the home page cards; 
